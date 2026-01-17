@@ -1,0 +1,329 @@
+/* ========== RESET ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Catamaran', sans-serif;
+}
+
+body {
+  background: #0f0f0f;
+  color: #fff;
+}
+
+/* ========== CONTAINER ========== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  min-height: 100vh;
+}
+
+/* ========== LOGO ========== */
+.logo {
+  grid-column: 1 / -1;
+  width: 190px;
+  margin-bottom: 1rem;
+}
+
+/* ========== FORM ========== */
+.form {
+  background: #111;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid #222;
+}
+
+.form>header {
+  display: flex;
+  flex-direction: column;
+}
+
+.form header h1 {
+  color: #f5c77a;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.form header p {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-bottom: 1.5rem;
+}
+
+/* Labels */
+.label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* Inputs */
+.input {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #0f0f0f;
+  border: 1px solid #222;
+  border-radius: 6px;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.input img {
+  width: 18px;
+}
+
+.input input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  width: 100%;
+}
+
+/* ========== HORÁRIOS ========== */
+.hours {
+  list-style: none;
+
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+
+  margin-bottom: 2rem;
+}
+
+.hour {
+  width: 4.87rem;
+  height: 2.5rem;
+
+  border-radius: 0.5rem;
+
+  font-size: 1rem;
+  border: 1px solid #3e3c41;
+
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hour-period {
+  width: 100%;
+  color: #98959d;
+  font-size: 0.87rem;
+
+  margin-top: 0.75rem;
+}
+
+.hour-available {
+  background-color: #2e2c30;
+}
+
+.hour-unavailable {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+.hour-selected {
+  border: 1px solid #b8952e;
+  color: #b8952e;
+}
+
+.hour:not(.hour-unavailable):hover {
+  border: 1px solid #b8952e;
+  color: #b8952e;
+}
+
+
+
+/* ========== BOTÃO ========== */
+.button {
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  background: #f5c77a;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+/* ========== AGENDA (ASIDE) ========== */
+.schedule {
+  background: #111;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid #222;
+}
+
+.schedule>header {
+  display: flex;
+  flex-direction: column;
+}
+
+.schedule header h1 {
+  color: #f5c77a;
+  font-size: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.schedule header p {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 1.5rem;
+}
+
+/* ========== PERÍODOS ========== */
+.schedule-period {
+  margin-bottom: 1.5rem;
+}
+
+.schedule-period header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.schedule-period img {
+  width: 18px;
+}
+
+.schedule-period strong {
+  color: #fff;
+}
+
+.schedule-period span {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-left: auto;
+}
+
+.period {
+  list-style: none;
+  padding: 1.25rem;
+
+}
+
+.period li {
+  height: 2rem;
+  color: #b2afb6;
+  font-size: 1rem;
+
+  display: flex;
+  align-items: center;
+}
+
+/* ========== SELECT ========== */
+
+.input select {
+  width: 100%;
+  padding: 0.9rem;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #0f0f0f;
+  color: #fff;
+  appearance: none;
+}
+
+.input select option {
+  background: #111;
+  color: #fff;
+}
+
+
+/* ========== RESPONSIVO ========== */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .logo {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .form,
+  .schedule {
+    padding: 1.5rem;
+  }
+
+  .form header h1,
+  .schedule header h1 {
+    font-size: 1.3rem;
+  }
+}
+
+.top-nav {
+  width: 100%;
+  background: #0f0f0f;
+  padding: 1rem 2rem;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: left;
+  gap: 2rem;
+}
+
+
+.top-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.top-nav a:hover {
+  color: #f5c77a;
+}
+
+/* Mensagem */
+
+.form-message {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+/* SUCESSO */
+.form-message.success {
+  display: block;
+  background: rgba(245, 199, 122, 0.12);
+  color: #f5c77a;
+  border: 1px solid #f5c77a;
+}
+
+/* ERRO */
+.form-message.error {
+  display: block;
+  background: rgba(180, 35, 24, 0.15);
+  color: #ff6b6b;
+  border: 1px solid #ff6b6b;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

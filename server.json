@@ -1,0 +1,30 @@
+{
+  "schedules": [
+    {
+      "id": "4dd9",
+      "name": "asassa",
+      "when": "2026-01-17T22:00:00.000Z",
+      "professional": "joao",
+      "userId": "31971724115"
+    },
+    {
+      "id": "c930",
+      "name": "cdcsd",
+      "when": "2026-01-18T12:00:00.000Z",
+      "professional": "joao",
+      "userId": "31971724115"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "a69a",
+      "userName": "washington",
+      "userPhone": "31971724115",
+      "isAdmin": false
+    },
+    {
+      "id": "f47d",
+      "isAdmin": false
+    }
+  ]
+}

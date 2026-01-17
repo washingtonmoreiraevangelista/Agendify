@@ -1,0 +1,85 @@
+/* ================= SERVIÇOS ================= */
+.services {
+  padding: 4rem 2rem;
+}
+
+.services h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+  color: #f5c77a;
+}
+
+/* CARD */
+.service-card {
+  min-width: 240px;
+  flex-shrink: 0;
+
+  background: #151515;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid #222;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 240;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: #f5c77a;
+}
+
+.service-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.service-card .price {
+  font-weight: 700;
+  color: #f5c77a;
+  margin-bottom: 0.3rem;
+}
+
+.service-card .time {
+  font-size: 0.85rem;
+  color: #bbb;
+  margin-bottom: 1rem;
+}
+
+/* BOTÃO ALINHADO NA BASE DO CARD */
+.service-card button {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 6px;
+  background: #f5c77a;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: auto; /* força o botão ficar na base do card */
+}
+
+.service-card button:hover {
+  opacity: 0.9;
+}
+
+/* RESPONSIVO SERVIÇOS */
+@media (max-width: 480px) {
+  .services {
+    padding: 3rem 1.5rem;
+  }
+
+  .services h2 {
+    font-size: 1.8rem;
+  }
+
+  .service-card {
+    padding: 1.2rem;
+    height: 280px; /* altura fixa menor para mobile */
+  }
+}
+
