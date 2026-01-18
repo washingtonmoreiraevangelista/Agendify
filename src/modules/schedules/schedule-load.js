@@ -1,4 +1,4 @@
-import { scheduleFetchByDay } from '../../services/schedule-fetch-by-day';
+import { scheduleFetchByDay } from '../../services/schedule-fetch-by-day'
 import { hoursLoad } from '../form/hours-load';
 import { scheduleShow } from './show';
 

@@ -4,7 +4,7 @@ export async function scheduleNew({ id, name, when, professional }) {
   try {
 
     // Recupera o telefone de quem "logou"
-    const userId = localStorage.getItem("@app:phone");
+    const userId = localStorage.getItem("@app:userId")
 
     await fetch(`${apiConfig.baseURL}/schedules`, {
       method: 'POST',

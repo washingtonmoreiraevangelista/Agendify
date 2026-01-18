@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AGENDIFY</title>
+    <link rel="icon" href="./src/assets/scissors.svg" />
+    <!-- Fonte Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/styles/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="brand">
+        Agendify
+        <img src="/src/assets/scissors.svg" alt="Agendify" class="brand-logo" />
+      </h1>
+      <nav>
+        <a href="#servicos">Serviços</a>
+        <a href="/scheduling.html" id="nav-agendar" style="display: none"
+          >Agendar</a
+        >
+        <a href="#contato">Contato</a>
+      </nav>
+    </header>
+    <main class="hero">
+      <h2>Agende seu horário em minutos</h2>
+      <p>
+        Escolha o melhor dia, horário e profissional. Praticidade para você e
+        organização para o seu salão.
+      </p>
+      <button class="btn-agendar">Agendar</button>
+    </main>
+    <section class="services" id="servicos">
+      <h2>Serviços</h2>
+      <div class="carousel-wrapper">
+        <button class="carousel-btn prev">‹</button>
+        <div class="carousel">
+          <div class="service-card">
+            <h3>Corte</h3>
+            <p class="price">R$ 30,00</p>
+            <span class="time">30 min</span>
+            <button class="btn-agendar">Agendar</button>
+          </div>
+          <div class="service-card">
+            <h3>Barba</h3>
+            <p class="price">R$ 20,00</p>
+            <span class="time">16 min</span>
+            <button class="btn-agendar">Agendar</button>
+          </div>
+          <div class="service-card">
+            <h3>Sobrancelha</h3>
+            <p class="price">R$ 10,00</p>
+            <span class="time">5 min</span>
+            <button class="btn-agendar">Agendar</button>
+          </div>
+          <div class="service-card">
+            <h3>Pezinho</h3>
+            <p class="price">R$ 10,00</p>
+            <span class="time">5 min</span>
+            <button class="btn-agendar">Agendar</button>
+          </div>
+          <div class="service-card">
+            <h3>Relaxamento</h3>
+            <p class="price">R$ 25,00</p>
+            <span class="time">10 min</span>
+            <button class="btn-agendar">Agendar</button>
+          </div>
+          <div class="service-card">
+            <h3>Luzes</h3>
+            <p class="price">R$ 45,00</p>
+            <span class="time">20 min</span>
+            <button class="btn-agendar">Agendar</button>
+          </div>
+          <div class="service-card">
+            <h3>Progressiva ou Botox</h3>
+            <p class="price">R$ 50,00</p>
+            <span class="time">40 min</span>
+            <button class="btn-agendar">Agendar</button>
+          </div>
+          <div class="service-card">
+            <h3>Nevou</h3>
+            <p class="price">R$ 110,00</p>
+            <span class="time">20 min</span>
+            <button class="btn-agendar">Agendar</button>
+          </div>
+          <div class="service-card">
+            <h3>Pintura</h3>
+            <p class="price">R$ 35,00</p>
+            <span class="time">20 min</span>
+            <button class="btn-agendar">Agendar</button>
+          </div>
+          <div class="service-card">
+            <h3>Escova</h3>
+            <p class="price">R$ 15,00</p>
+            <span class="time">20 min</span>
+            <button class="btn-agendar">Agendar</button>
+          </div>
+        </div>
+        <button class="carousel-btn next">›</button>
+      </div>
+    </section>
+    <!-- Nossa equipe -->
+    <section class="contact-section">
+      <h2>Nossa equipe</h2>
+      <p>Profissionais qualificados e apaixonados pelo que fazem.</p>
+      <div class="team">
+        <div class="team-card">
+          <img src="src/assets/cabelereiro-1.jpg" alt="João" />
+          <p>João – Barbeiro e Cabeleireiro</p>
+        </div>
+        <div class="team-card">
+          <img src="src/assets/cabelereiro-2.jpg" alt="Carlos" />
+          <p>Carlos – Barbeiro e Cabeleireiro</p>
+        </div>
+        <div class="team-card">
+          <img src="src/assets/cabeleriro-3.jpg" alt="Marcos" />
+          <p>Marcos – Barbeiro e Cabeleireiro</p>
+        </div>
+      </div>
+    </section>
+    <!-- Localização e Horários-->
+    <section class="contact-section">
+      <h2>Localização e Horários</h2>
+      <div class="location-hours">
+        <!-- MAPA -->
+        <div class="map-placeholder">
+          <iframe
+            src="https://www.google.com/maps?q=Rua+Pindamonhangaba,+106,+Cruzeiro,+Betim,+MG&output=embed"
+            loading="lazy"
+          >
+          </iframe>
+        </div>
+        <!-- HORÁRIOS -->
+        <div class="hours-operation">
+          <ul class="operation">
+            <li><span>Segunda-feira</span><span>09:00 - 20:00</span></li>
+            <li><span>Terça-feira</span><span>09:00 - 20:00</span></li>
+            <li><span>Quarta-feira</span><span>09:00 - 20:00</span></li>
+            <li><span>Quinta-feira</span><span>09:00 - 20:00</span></li>
+            <li><span>Sexta-feira</span><span>09:00 - 21:00</span></li>
+            <li><span>Sábado</span><span>08:30 - 20:00</span></li>
+            <li class="closed"><span>Domingo</span><span>Fechado</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- CONTATO -->
+    <section class="contact-section">
+      <h2>Contato</h2>
+      <p>Entre em contato conosco para dúvidas ou agendamentos.</p>
+      <div class="contact-grid" id="contato">
+        <!-- INFORMAÇÕES -->
+        <div class="contact-info">
+          <p><strong>📍 Endereço:</strong> xxxx xx xxxxxxxxxx xxxx/xxxx</p>
+          <p><strong>📞 Telefone:</strong> (31) 99999-9999</p>
+          <p><strong>💬 WhatsApp:</strong> (31) 99999-9999</p>
+          <p><strong>✉️ Email:</strong> contato@barberpro.com</p>
+        </div>
+        <!-- FORMULÁRIO -->
+        <form class="contact-form">
+          <input type="text" placeholder="Seu nome" required />
+          <input type="email" placeholder="Seu email" required />
+          <textarea placeholder="Sua mensagem" rows="4" required></textarea>
+          <button type="submit">Enviar mensagem</button>
+        </form>
+      </div>
+    </section>
+    <footer>© 2025 BarberPro · Todos os direitos reservados</footer>
+    <!-- MODAL -->
+    <div class="modal" id="login-modal">
+      <div class="modal-box">
+        <div id="form-message" class="form-message"></div>
+
+        <div class="modal-tabs">
+          <button class="tab active" data-tab="login">Login</button>
+          <button class="tab" data-tab="register">Cadastro</button>
+        </div>
+
+        <!-- LOGIN -->
+        <form id="login-form" class="modal-form active">
+          <label for="login-phone">Telefone</label>
+          <input id="login-phone" type="tel" placeholder="(00) 00000-0000" />
+
+          <button type="submit">Entrar</button>
+        </form>
+
+        <!-- REGISTRO -->
+        <form id="register-form" class="modal-form">
+          <label for="register-name">Nome</label>
+          <input
+            id="register-name"
+            type="text"
+            placeholder="Digite seu nome"
+            required
+          />
+
+          <label for="register-phone">Telefone</label>
+          <input
+            id="register-phone"
+            type="tel"
+            placeholder="(00) 00000-0000"
+            maxlength="15"
+            required
+          />
+
+          <button type="submit">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

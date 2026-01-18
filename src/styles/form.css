@@ -268,13 +268,12 @@ body {
 }
 
 .top-nav {
-  width: 100%;
+ width: 100%;
   background: #0f0f0f;
   padding: 1rem 2rem;
 
   display: flex;
-  justify-content: flex-start;
-  align-items: left;
+  align-items: center;
   gap: 2rem;
 }
 
@@ -315,6 +314,26 @@ body {
   background: rgba(180, 35, 24, 0.15);
   color: #ff6b6b;
   border: 1px solid #ff6b6b;
+}
+
+/* ========== BOTÃO DE SAIR (NAV) ========== */
+.btn-logout {
+  background: transparent;
+  color: #ffffff; /* Texto totalmente branco */
+  border: none;    /* Remove todas as bordas */
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-family: 'Catamaran', sans-serif;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease;
+   margin-left: auto;
+}
+
+.btn-logout:hover {
+  opacity: 0.7; /* Efeito suave ao passar o mouse */
+  color: #f5c77a; /* Opcional: muda para dourado no hover para dar feedback */
 }
 
 @keyframes fadeIn {

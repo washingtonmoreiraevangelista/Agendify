@@ -26,11 +26,20 @@ export function loginModal() {
   if (registerPhone) registerPhone.addEventListener("input", applyMask)
   if (loginPhone) loginPhone.addEventListener("input", applyMask)
 
+
   // Abrir modal
   buttons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault()
-      modal.classList.add("active")
+      const isLogged = !!localStorage.getItem("@app:userId")
+
+      if (isLogged) {
+        // usuário logado → vai para agendamento
+        window.location.href = "scheduling.html"
+      } else {
+        // não logado → abre modal
+        modal.classList.add("active")
+      }
     })
   })
 
@@ -55,37 +64,53 @@ export function loginModal() {
       const nameInput = modal.querySelector("#register-name")
       const phoneInput = modal.querySelector("#register-phone")
 
-      const userName = nameInput.value.trim()
-      const userPhone = phoneInput.value.replace(/\D/g, "")
+      const name = nameInput.value.trim()
+      const phone = phoneInput.value.replace(/\D/g, "")
 
-      if (!userName) {
+      if (!name) {
         showMessage("Favor inserir seu nome!")
         return
       }
 
-      if (!userPhone) {
+      if (!phone) {
         showMessage("Favor inserir o telefone com DDD!")
         return
       }
 
 
       try {
-        await profile(
-          {
-            userName,
-            userPhone,
-            isAdmin: false
-          }
-        )
-        showMessage("Cadastro realizado com sucesso!", "success")
-        registerForm.reset()
 
-        setTimeout(() => {
-          window.location.href = "scheduling.html"
-        }, 1500)
+        // Envia os dados e ESPERA o objeto criado (com o ID) voltar da API
+        const newUser = await profile({
+          name,
+          phone,
+          isAdmin: false
+        });
 
-      } catch {
-        showMessage("Não foi possível realizar o cadastro")
+        //Verifica se o usuário realmente foi criado
+        if (newUser && newUser.id) {
+
+          // Salva na sessão para o agendamento funcionar depois
+          localStorage.setItem("@app:userId", newUser.id);
+          localStorage.setItem("@app:name", newUser.name);
+          localStorage.setItem("@app:isAdmin", false);
+
+          showMessage("Cadastro realizado com sucesso!", "success");
+          registerForm.reset();
+
+          //Redirecionamento
+          setTimeout(() => {
+            window.location.href = "scheduling.html";
+          }, 1500);
+
+        } else {
+          // Caso a API responda mas sem os dados esperados
+          showMessage("Erro ao processar retorno do servidor.");
+        }
+
+      } catch (error) {
+        console.error("Erro no cadastro:", error);
+        showMessage("Não foi possível realizar o cadastro");
       }
 
     })
@@ -112,7 +137,23 @@ export function loginModal() {
 
       try {
         // Chamamos a função e ARMAZENAMOS o resultado
-        const user = await login({ phone })
+        const users = await login({ phone })
+
+        //  valida se encontrou usuário
+        if (!users || users.length === 0) {
+          showMessage("Telefone não cadastrado.")
+          return
+        }
+
+        // usuário logado
+        const user = users[0]
+
+        // salvar sessão
+        localStorage.setItem("@app:userId", user.id)
+        localStorage.setItem("@app:name", user.name)
+        localStorage.setItem("@app:isAdmin", user.isAdmin)
+
+        showMessage("Login realizado com sucesso!", "success")
 
         // SÓ realiza o login se o server retornou dados (user não é null)
         if (user) {

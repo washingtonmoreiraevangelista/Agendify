@@ -1,6 +1,6 @@
 import { apiConfig } from './api-config'
 
-export async function schedulesByUser() {
+export async function schedulesByUser({data}) {
   try {
     const userId = localStorage.getItem("@app:phone")
 
