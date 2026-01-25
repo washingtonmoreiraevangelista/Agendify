@@ -19,10 +19,17 @@ export function scheduleShow({ dailySchedule }) {
       const time = document.createElement("strong")
       const name = document.createElement("span")
 
+      // Criar o elemento de serviços
+      const servicesElement = document.createElement("span")
+      servicesElement.classList.add("schedule-services")
+
       // Adicionar o id do agendamento
       item.setAttribute("data-id", schedule.id)
-      time.textContent = dayjs(schedule.when).format("HH:mm")
-      name.textContent = schedule.professional
+      time.textContent = dayjs(schedule.when).format("DD/MM [às] HH:mm")
+      name.textContent = `Profissional: ${ schedule.professional}`
+
+      //  Formatar a lista de serviços (Corrigido o parêntese e ternário)
+      servicesElement.textContent = schedule.services ? `Serviços: ${schedule.services.join(", ")}` : "Sem serviços"
 
       //Criar ícone de cancelar
       const cancelIcon = document.createElement("img")
@@ -30,8 +37,9 @@ export function scheduleShow({ dailySchedule }) {
       cancelIcon.setAttribute("src", "./src/assets/cancel.svg")
       cancelIcon.setAttribute("alt", "Cancelar")
 
+
       //Adicionar o tempo , nome e ícone
-      item.append(time, name, cancelIcon)
+      item.append(time, name, servicesElement, cancelIcon,)
 
       //Obter somente a hora
       const hour = dayjs(schedule.when).hour()

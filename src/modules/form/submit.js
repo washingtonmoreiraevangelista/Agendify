@@ -62,7 +62,7 @@ form.onsubmit = async (e) => {
         hourSelected,
         when,
         professional,
-        services: serviceSelected.value
+        services: serviceSelected
       }
     )
 

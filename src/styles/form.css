@@ -209,20 +209,33 @@ body {
   color: #aaa;
   margin-left: auto;
 }
-
-.period {
-  list-style: none;
-  padding: 1.25rem;
-
+.schedule-services {
+  display: block; 
+  font-size: 0.8rem !important; 
+  color: #f5c77a !important; 
+  margin-top: 2px;
+  font-style: italic;
+}
+.period li {
+  min-height: 3rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #222;
+  display: flex;
+  align-items: center; 
+  gap: 0.8rem;
 }
 
-.period li {
-  height: 2rem;
-  color: #b2afb6;
-  font-size: 1rem;
+.period li strong, 
+.period li span,
+.schedule-services {
+  font-size: 0.8rem !important; 
+  font-weight: 400;          
+  color: #f5c77a !important; 
+}
 
-  display: flex;
-  align-items: center;
+.period li strong {
+  color: #fff;
+  min-width: 40px;
 }
 
 /* ========== SELECT ========== */

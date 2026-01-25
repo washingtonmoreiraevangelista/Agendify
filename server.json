@@ -1,18 +1,23 @@
 {
   "schedules": [
     {
-      "id": "0ab3",
+      "id": "ccb2",
       "name": "washington",
-      "when": "2026-01-25T18:00:00.000Z",
+      "when": "2026-01-25T20:00:00.000Z",
       "professional": "maria",
-      "userId": "b57a"
-    },
+      "services": [
+        "Barba",
+        "Pezinho"
+      ],
+      "userId": "0286"
+    }
+  ],
+  "profiles": [
     {
-      "id": "1d67",
+      "id": "0286",
       "name": "washington",
-      "when": "2026-01-26T18:00:00.000Z",
-      "professional": "joao",
-      "userId": "b57a"
+      "phone": "31971724115",
+      "isAdmin": false
     }
   ],
   "professionals": [
