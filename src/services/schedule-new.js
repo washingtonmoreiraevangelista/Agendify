@@ -1,6 +1,6 @@
 import { apiConfig } from './api-config'
 
-export async function scheduleNew({ id, name, when, professional }) {
+export async function scheduleNew({ id, when,name, professional, service }) {
   try {
 
     // Recupera o telefone de quem "logou"
@@ -16,6 +16,7 @@ export async function scheduleNew({ id, name, when, professional }) {
         name,
         when,
         professional,
+        service,
         userId
       })
     })

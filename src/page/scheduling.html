@@ -15,7 +15,6 @@
     />
     <link rel="stylesheet" href="../../src/styles/form.css" />
     <link rel="stylesheet" href="../../src/styles/style.css" />
-
   </head>
   <body>
     <nav class="top-nav">
@@ -53,23 +52,14 @@
           <i><img src="/src/assets/person.svg" alt="Profissional" /></i>
           <select id="professional" name="professional" required>
             <option value="">Selecione um profissional</option>
-            <option value="joao">João</option>
-            <option value="maria">Maria</option>
-            <option value="carlos">Carlos</option>
           </select>
         </div>
 
-        <label for="client" class="label">Cliente</label>
-        <div class="input">
-          <i><img src="/src/assets/person.svg" alt="Calendário" /></i>
-          <input
-            type="text"
-            id="client"
-            name="client"
-            placeholder="Nome do cliente"
-            required
-          />
-        </div>
+<label class="label">Selecione os Serviços</label>
+
+<div class="services-container" id="services-list">
+</div>
+
 
         <div id="form-message" class="form-message"></div>
 

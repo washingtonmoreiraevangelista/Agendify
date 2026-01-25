@@ -2,7 +2,7 @@ import { apiConfig } from './api-config'
 
 export async function schedulesByUser({data}) {
   try {
-    const userId = localStorage.getItem("@app:phone")
+    const userId = localStorage.getItem("@app:userId")
 
     //faz o fetch filtrando pelo user id 
     const response = await fetch(`${apiConfig.baseURL}/schedules?userId=${userId}`)

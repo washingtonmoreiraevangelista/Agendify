@@ -5,7 +5,6 @@ import { schedulesDay } from '../schedules/schedule-load'
 
 const form = document.querySelector("form")
 const selectedDate = document.getElementById("date")
-const clientName = document.getElementById("client")
 const professionalSelect = document.querySelector("#professional")
 
 
@@ -13,7 +12,7 @@ const professionalSelect = document.querySelector("#professional")
 const inputToday = dayjs(new Date()).format("YYYY-MM-DD")
 
 //Data maxima de agendamento
-const maxDate = "2026-12-31"
+const maxDate = dayjs(new Date()).add(30, "day").format("YYYY-MM-DD")
 
 //Carregar data atual
 selectedDate.value = inputToday
@@ -27,14 +26,24 @@ form.onsubmit = async (e) => {
 
 
   try {
-    //Recuperando nome do client
-    const name = clientName.value.trim()
+    // Recuperar profissional e horário
     const professional = professionalSelect.value
+
+    // Busca todos os checkboxes marcados
+    const checkedServices = Array.from(form.querySelectorAll('input[name="service"]:checked'));
+
+    // Extrai apenas os valores (nomes dos serviços)
+    const serviceSelected = checkedServices.map(input => input.value);
+
+    if (serviceSelected.length === 0) {
+      showMessage("Por favor, selecione ao menos um serviço para agendar.", "error");
+      return; 
+    }
 
     //Recuperar horário selecionado
     const hourSelected = document.querySelector(".hour-selected")
 
-    if (!name || !professional || !hourSelected) {
+    if (!professional || !hourSelected || !serviceSelected) {
       showMessage("Preencha todos os campos!", "error")
       return
     }
@@ -43,15 +52,17 @@ form.onsubmit = async (e) => {
     const [hour] = hourSelected.innerText.split(":")
 
     //Inserir a hora na data
-     const when = dayjs(selectedDate.value).add(hour, "hour")
-     
+    const when = dayjs(selectedDate.value).add(hour, "hour")
+
+    const clientName = localStorage.getItem("@app:name")
     //Faz agendamento
     await scheduleNew(
       {
-        name,
+        name: clientName,
         hourSelected,
         when,
-        professional
+        professional,
+        services: serviceSelected.value
       }
     )
 

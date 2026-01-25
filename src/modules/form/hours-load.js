@@ -9,8 +9,11 @@ export function hoursLoad({ date, dailySchedule }) {
   //Limpa lista de horários
   hours.innerHTML = " "
 
-  //Obtem a lista de todos os horários ocupados
-  const unavailableHours = dailySchedule.map((schedule) => dayjs(schedule.when).format("HH:mm"))
+  //Obter a lista de todos os horários ocupados, Só pega os horários ocupados DO DIA selecionado
+  const unavailableHours = dailySchedule
+    .filter((schedule) => dayjs(date).isSame(dayjs(schedule.when), "day"))
+    .map((schedule) => dayjs(schedule.when).format("HH:mm"));
+
 
   const opening = openingHours.map((hour) => {
     //Recuperar hora

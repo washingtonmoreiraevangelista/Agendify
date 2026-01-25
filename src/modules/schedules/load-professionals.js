@@ -1,0 +1,38 @@
+export async function loadProfessionals() {
+  //scheduling.html
+  const select = document.getElementById("professional")
+  //index.html
+  const teamContainer = document.querySelector(".team")
+
+  try {
+
+    const response = await fetch("http://localhost:3333/professionals")
+    const professionals = await response.json()
+
+    //renderiza os profissionais na pagina de agendamento
+    if (select) {
+      professionals.forEach(pro => {
+        const option = document.createElement("option")
+        option.value = pro.id
+        option.textContent = pro.name
+        select.appendChild(option)
+      })
+    }
+
+    //renderiza os profissionais na pagina inicial
+    if (teamContainer) {
+      teamContainer.innerHTML = ""
+      professionals.forEach(pro => {
+        teamContainer.innerHTML +=
+          `
+        <div class="team-card">
+        <img src="${pro.avatar}" alt="${pro.name}" />
+        <p>${pro.name} - ${pro.description}<p/>
+        <div/>
+        `
+      })
+    }
+  } catch (error) {
+    console.error("Erro ao carregar profissionais:", error)
+  }
+}
