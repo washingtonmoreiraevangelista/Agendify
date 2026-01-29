@@ -3,10 +3,13 @@ import { scheduleNew } from '../../services/schedule-new'
 import { showMessage } from '../../utils/showMessage'
 import { schedulesDay } from '../schedules/schedule-load'
 
+export function initSubmit() {
+
 const form = document.querySelector("form")
 const selectedDate = document.getElementById("date")
 const professionalSelect = document.querySelector("#professional")
 
+if (!form || !selectedDate) return
 
 //Data atual para o input
 const inputToday = dayjs(new Date()).format("YYYY-MM-DD")
@@ -77,4 +80,5 @@ form.onsubmit = async (e) => {
     console.log(error)
   }
 
+}
 }

@@ -1,11 +1,11 @@
 "use strict"
 
 //CSS
+import "./styles/style.css"
 import "./styles/carrossel.css"
 import "./styles/contato.css"
 import "./styles/form.css"
-import "./styles/servicos.css"
-import "./styles/style.css"
+import "./styles/services.css"
 
 
 //Js

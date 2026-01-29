@@ -1,16 +1,19 @@
 import { apiConfig } from './api-config'
 
-export async function schedulesByUser({data}) {
+export async function schedulesByUser({ date, professionalId }) {
   try {
-    const userId = localStorage.getItem("@app:userId")
+  
+    // Faz o fetch filtrando por DATA e PROFISSIONAL
+    const response = await fetch(
+      `${apiConfig.baseURL}/schedules?date=${date}&professional=${professionalId}`
+    )
 
-    //faz o fetch filtrando pelo user id 
-    const response = await fetch(`${apiConfig.baseURL}/schedules?userId=${userId}`)
-
-    const data = await response.json()
-    return data
+    const schedules = await response.json()
+    
+    return schedules
   } catch (error) {
     console.log(error);
-    alert("Erro ao carregar seus agendamentos.")
+    alert("Erro ao carregar os agendamentos.")
+    return []
   }
 }

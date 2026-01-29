@@ -1,6 +1,7 @@
+import { apiConfig } from './api-config'
 export async function fetchProfessionals() {
   try {
-    const response = await fetch(`${apiConfig.baseURL}/professionals`)
+    const response = await fetch(`${apiConfig.baseURL}/professional`)
     const data = await response.json()
 
     return data

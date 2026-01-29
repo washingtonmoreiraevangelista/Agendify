@@ -1,3 +1,5 @@
+import { schedulesDay } from '../schedules/schedule-load'
+
 export async function loadProfessionals() {
   //scheduling.html
   const select = document.getElementById("professional")
@@ -6,16 +8,20 @@ export async function loadProfessionals() {
 
   try {
 
-    const response = await fetch("http://localhost:3333/professionals")
+    const response = await fetch("http://localhost:3333/professional")
     const professionals = await response.json()
 
     //renderiza os profissionais na pagina de agendamento
     if (select) {
       professionals.forEach(pro => {
         const option = document.createElement("option")
-        option.value = pro.id
+        option.setAttribute("value", pro.id)
         option.textContent = pro.name
         select.appendChild(option)
+      })
+
+      select.addEventListener("change", () => {
+        schedulesDay()
       })
     }
 

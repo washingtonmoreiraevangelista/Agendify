@@ -1,21 +1,17 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
-
+const MiniCssExtractPlugin = require("mini-css-extract-plugin") 
 
 module.exports = {
   target: "web",
   mode: "development",
-
-  // Arquivo de entrada
   entry: path.resolve(__dirname, "src", "main.js"),
-  // Saida build
   output: {
     filename: "main.js",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, "dist"),
+    clean: true, // Limpa a pasta dist a cada build
   },
-
-  //servidor que pega as alterações
   devServer: {
     static: {
       directory: path.join(__dirname, "dist")
@@ -24,21 +20,18 @@ module.exports = {
     open: true,
     liveReload: true,
   },
-
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: "style.css", // Nome do arquivo CSS que será gerado
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "index.html"),
       filename: "index.html",
-
-      // favicon: path.resolve("src", "assets", ""),
     }),
-
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "src", "page", "scheduling.html"),
       filename: "scheduling.html",
-
     }),
-
     new CopyWebpackPlugin({
       patterns: [
         {
@@ -48,12 +41,12 @@ module.exports = {
       ]
     })
   ],
-
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        // Troque "style-loader" por MiniCssExtractPlugin.loader
+        use: [MiniCssExtractPlugin.loader, "css-loader"]
       },
       {
         test: /\.js$/,
