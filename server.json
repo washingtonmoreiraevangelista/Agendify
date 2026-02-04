@@ -1,52 +1,32 @@
 {
-  "schedules": [
-    {
-      "id": "0b15",
-      "name": "washington",
-      "when": "2026-01-29T20:00:00.000Z",
-      "professional": "Maria",
-      "services": [
-        "Nevou"
-      ],
-      "userId": "f5ee"
-    },
-    {
-      "id": "40ba",
-      "name": "washington",
-      "when": "2026-01-29T17:00:00.000Z",
-      "professional": "Joao",
-      "services": [
-        "Barba"
-      ],
-      "userId": "f5ee"
-    }
-  ],
-  "profiles": [
-    {
-      "id": "f5ee",
-      "name": "washington",
-      "phone": "31971724115",
-      "isAdmin": false
-    }
-  ],
+  "schedules": [],
+  "profiles": [],
   "professional": [
     {
       "id": "Joao",
       "name": "João",
       "description": "Barbeiro e Cabeleireiro",
-      "avatar": "./src/assets/cabelereiro-2.jpg"
+      "avatar": "assets/cabelereiro-1.jpg"
     },
     {
       "id": "Maria",
       "name": "Maria",
       "description": "Especialista em Cortes",
-      "avatar": "./src/assets/cabelereiro-1.jpg"
+      "avatar": "assets/cabelereiro-1.jpg"
     },
     {
       "id": "Carlos",
       "name": "Carlos",
       "description": "Barbeiro e Cabeleireiro",
-      "avatar": "./src/assets/cabeleriro-3.jpg"
+      "avatar": "assets/cabeleriro-3.jpg"
+    },
+    {
+      "id": "e11a",
+      "name": "Marcos Silva",
+      "phone": "31971724115",
+      "description": "Barbeiro Especialista em Degradê",
+      "avatar": "assets/cabeleriro-3.jpg",
+      "isAdmin": true
     }
   ],
   "services": [

@@ -2,6 +2,8 @@ import { profile } from '../../services/profile'
 import { showMessage } from '../../utils/showMessage'
 import { formatPhoneNumber } from '../../utils/formatMask'
 import { login } from '../../services/profile'
+import { fetchProfessionals } from '../../services/fetch-professionals'
+
 
 export function loginModal() {
   const modal = document.getElementById("login-modal")
@@ -27,10 +29,10 @@ export function loginModal() {
 
 
   // Abrir modal
- document.addEventListener("click", (e) => {
+  document.addEventListener("click", (e) => {
     if (e.target.classList.contains("btn-agendar")) {
       e.preventDefault()
-      
+
       const isLogged = !!localStorage.getItem("@app:userId")
 
       if (isLogged) {
@@ -134,6 +136,24 @@ export function loginModal() {
       }
 
       try {
+
+        // tenta buscar nos profissionais
+        const professionals = await fetchProfessionals()
+        const proUser = professionals.find(pro => String(pro.phone) === String(phone))
+
+        if (proUser) {
+          // Se achou no /professional, é ADMIN
+          localStorage.setItem("@app:userId", proUser.id)
+          localStorage.setItem("@app:name", proUser.name)
+          localStorage.setItem("@app:isAdmin", "true")
+
+          showMessage("Login administrativo!", "success")
+          setTimeout(() => { window.location.href = "admin.html" }, 1500)
+          // Para a execução aqui
+          return
+        }
+
+        // Se não achou profissional, tenta o login normal (clientes comuns) ,
         // Chamamos a função e ARMAZENAMOS o resultado
         const users = await login({ phone })
 
@@ -154,15 +174,16 @@ export function loginModal() {
         showMessage("Login realizado com sucesso!", "success")
 
         // SÓ realiza o login se o server retornou dados (user não é null)
-        if (user) {
-          showMessage("Login realizado com sucesso!", "success")
-          setTimeout(() => {
+        setTimeout(() => {
+          // Verificamos se user.isAdmin é true (pode vir como booleano ou string da API)
+          if (String(user.isAdmin) === "true") {
+            // Se for admin, vai para a página de administração
+            window.location.href = "admin.html"
+          } else {
+            // Se não for admin, vai para o agendamento comum
             window.location.href = "scheduling.html"
-          }, 1500)
-        } else {
-          // Se o server não tem os dados, exibe erro e PARA aqui.
-          showMessage("Telefone não cadastrado .")
-        }
+          }
+        }, 1500)
 
       } catch (error) {
         console.error("Erro no processo de login:", error)

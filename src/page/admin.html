@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel Administrativo - AGENDIFY</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="admin-page">
+    <nav class="top-nav">
+      <div class="nav-content">
+        <a id="btn-logout" class="btn-logout">Sair</a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <section class="admin-card profile-section">
+        <div class="profile-info"></div>
+      </section>
+
+      <div class="admin-grid">
+        <aside class="admin-card">
+          <header class="section-header"><h3>Meus Serviços</h3></header>
+          <form id="service-form" class="admin-form">
+            <div class="input-group">
+              <input type="text" placeholder="Nome do Serviço" required />
+            </div>
+            <div class="input-group">
+              <input type="text" placeholder="Preço (R$)" required />
+            </div>
+            <button type="submit" class="btn-primary">Adicionar</button>
+          </form>
+          <div class="admin-list" id="services-list">
+            <div class="admin-item">
+              <div><strong>Corte Moderno</strong> <span>R$ 55,00</span></div>
+              <button class="btn-icon-delete">&times;</button>
+            </div>
+          </div>
+        </aside>
+        <main class="admin-card">
+          <header class="section-header">
+            <h3>Agendamentos</h3>
+            <input type="date" id="admin-date-picker" />
+          </header>
+          <div class="schedule-periods">
+            <div class="period-group">
+              <div class="period-title">
+                <img src="/src/assets/morning.svg" alt="" />
+                <strong>Manhã</strong>
+              </div>
+              <ul class="admin-schedule-list">
+                <li class="schedule-item">
+                  <span class="time">09:00</span>
+                  <span class="client-name">Ricardo Souza</span>
+                  <button class="btn-cancel">Cancelar</button>
+                </li>
+                <li class="schedule-item available">
+                  <span class="time">10:00</span>
+                  <span class="client-name">[Livre]</span>
+                  <button class="btn-block">Bloquear</button>
+                </li>
+              </ul>
+            </div>
+            <div class="period-group">
+              <div class="period-title">
+                <img src="/src/assets/afternoon.svg" alt="" />
+                <strong>Tarde</strong>
+              </div>
+              <ul class="admin-schedule-list">
+                <li class="schedule-item blocked">
+                  <span class="time">14:00</span>
+                  <span class="client-name">BLOQUEADO</span>
+                  <button class="btn-unblock">Liberar</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

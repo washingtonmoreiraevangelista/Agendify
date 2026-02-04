@@ -1,0 +1,304 @@
+
+.admin-page {
+  --primary: #f5c77a;
+  --bg-dark: #0b0b0b;
+  --bg-card: #161616;
+  --text: #ffffff;
+  --text-muted: #bbb;
+  --danger: #ff4d4d;
+  --success: #4caf50;
+  --border: #222;
+
+  background-color: var(--bg-dark) !important; 
+  color: var(--text);
+  margin: 0;
+  font-family: 'Catamaran', sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Reset de elementos específicos dentro do Admin para não herdar do Index */
+.admin-page * {
+  box-sizing: border-box;
+}
+
+/* Navegação Superior - Customizada */
+.admin-page .top-nav {
+  background: #0f0f0f;
+  border-bottom: 1px solid var(--border);
+  height: 70px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.admin-page .nav-content {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: flex-end; /* Alinha o botão Sair à direita */
+  align-items: center;
+}
+
+.admin-page .top-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.admin-page .top-nav a:hover {
+  background: var(--primary);
+  color: #000;
+  border-color: var(--primary);
+}
+
+/* Layout e Containers */
+.admin-page .container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.admin-page .admin-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.admin-page .admin-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 25px;
+  border: 1px solid var(--border);
+  height: fit-content;
+}
+
+/* Seção de Perfil */
+.admin-page .profile-section {
+  margin-bottom: 2rem;
+}
+
+.admin-page .profile-info {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.admin-page .avatar-wrapper {
+  position: relative;
+}
+
+.admin-page .avatar-wrapper img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid var(--primary);
+  object-fit: cover;
+}
+
+.admin-page .upload-badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: var(--primary);
+  color: #000;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Cabeçalhos de Seção */
+.admin-page .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
+
+.admin-page .section-header h3 {
+  color: var(--primary);
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+/* Formulários */
+.admin-page .admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.admin-page .input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.admin-page .admin-form input,
+.admin-page #admin-date-picker {
+  background: #222;
+  border: 1px solid #333;
+  padding: 12px;
+  color: white;
+  border-radius: 6px;
+  width: auto; 
+  outline: none;
+}
+
+.admin-page .admin-form input:focus {
+  border-color: var(--primary);
+}
+
+.admin-page .btn-primary {
+  background: var(--primary);
+  border: none;
+  padding: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  color: #000;
+  text-transform: uppercase;
+  transition: 0.2s;
+}
+
+.admin-page .btn-primary:hover {
+  filter: brightness(1.1);
+}
+
+/* Listas e Itens */
+.admin-page .admin-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-page .admin-item,
+.admin-page .schedule-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #1f1f1f;
+  border-radius: 8px;
+  border: 1px solid transparent;
+}
+
+.admin-page .admin-item:hover {
+  border-color: #333;
+}
+
+.admin-page .admin-item strong {
+  display: block;
+  color: var(--text);
+}
+
+.admin-page .admin-item span {
+  color: var(--primary);
+  font-size: 0.9rem;
+}
+
+/* Agenda */
+.admin-page .schedule-item .time {
+  font-weight: bold;
+  color: var(--primary);
+  min-width: 65px;
+  font-size: 1.1rem;
+}
+
+.admin-page .schedule-item .client-name {
+  flex: 1;
+  margin-left: 15px;
+  font-weight: 500;
+}
+
+/* Botões de Ação dentro da lista */
+.admin-page .btn-icon-delete {
+  background: none;
+  border: none;
+  color: var(--danger);
+  font-size: 1.8rem;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.admin-page .btn-cancel,
+.admin-page .btn-block,
+.admin-page .btn-unblock {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.admin-page .btn-cancel { background: var(--danger); color: #fff; }
+.admin-page .btn-block { background: #444; color: #fff; }
+.admin-page .btn-unblock { background: var(--success); color: #fff; }
+
+/* Grupos de Período (Manhã/Tarde) */
+.admin-page .period-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 30px 0 15px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.admin-page .period-title img {
+  width: 18px;
+  filter: grayscale(1) brightness(2);
+}
+
+.admin-page .admin-schedule-list {
+  list-style: none;
+  padding: 0;
+}
+
+.admin-page .schedule-item.blocked {
+  opacity: 0.6;
+  background: #000;
+  border: 1px dashed #333;
+}
+
+.admin-page .schedule-item.available {
+  border-left: 4px solid var(--success);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .admin-page .admin-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-page .profile-info {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .admin-page .admin-form input {
+    width: 100%;
+  }
+}

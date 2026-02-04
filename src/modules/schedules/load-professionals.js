@@ -1,9 +1,11 @@
 import { schedulesDay } from '../schedules/schedule-load'
 
 export async function loadProfessionals() {
-  //scheduling.html
+
+  //Pagina de agendamento
   const select = document.getElementById("professional")
-  //index.html
+
+  //Pagina inicial
   const teamContainer = document.querySelector(".team")
 
   try {
@@ -38,6 +40,7 @@ export async function loadProfessionals() {
         `
       })
     }
+
   } catch (error) {
     console.error("Erro ao carregar profissionais:", error)
   }
