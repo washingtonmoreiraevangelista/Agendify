@@ -1,4 +1,3 @@
-
 .admin-page {
   --primary: #f5c77a;
   --bg-dark: #0b0b0b;
@@ -8,8 +7,7 @@
   --danger: #ff4d4d;
   --success: #4caf50;
   --border: #222;
-
-  background-color: var(--bg-dark) !important; 
+  background-color: var(--bg-dark) !important;
   color: var(--text);
   margin: 0;
   font-family: 'Catamaran', sans-serif;
@@ -17,12 +15,10 @@
   min-height: 100vh;
 }
 
-/* Reset de elementos específicos dentro do Admin para não herdar do Index */
 .admin-page * {
   box-sizing: border-box;
 }
 
-/* Navegação Superior - Customizada */
 .admin-page .top-nav {
   background: #0f0f0f;
   border-bottom: 1px solid var(--border);
@@ -38,7 +34,7 @@
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
-  justify-content: flex-end; /* Alinha o botão Sair à direita */
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -62,7 +58,6 @@
   border-color: var(--primary);
 }
 
-/* Layout e Containers */
 .admin-page .container {
   max-width: 1100px;
   margin: 40px auto;
@@ -84,7 +79,6 @@
   height: fit-content;
 }
 
-/* Seção de Perfil */
 .admin-page .profile-section {
   margin-bottom: 2rem;
 }
@@ -122,7 +116,6 @@
   cursor: pointer;
 }
 
-/* Cabeçalhos de Seção */
 .admin-page .section-header {
   display: flex;
   justify-content: space-between;
@@ -138,7 +131,6 @@
   font-size: 1.2rem;
 }
 
-/* Formulários */
 .admin-page .admin-form {
   display: flex;
   flex-direction: column;
@@ -159,7 +151,7 @@
   padding: 12px;
   color: white;
   border-radius: 6px;
-  width: auto; 
+  width: 100%;
   outline: none;
 }
 
@@ -177,13 +169,13 @@
   color: #000;
   text-transform: uppercase;
   transition: 0.2s;
+  width: 100%;
 }
 
 .admin-page .btn-primary:hover {
   filter: brightness(1.1);
 }
 
-/* Listas e Itens */
 .admin-page .admin-list {
   display: flex;
   flex-direction: column;
@@ -201,10 +193,6 @@
   border: 1px solid transparent;
 }
 
-.admin-page .admin-item:hover {
-  border-color: #333;
-}
-
 .admin-page .admin-item strong {
   display: block;
   color: var(--text);
@@ -215,7 +203,6 @@
   font-size: 0.9rem;
 }
 
-/* Agenda */
 .admin-page .schedule-item .time {
   font-weight: bold;
   color: var(--primary);
@@ -229,7 +216,6 @@
   font-weight: 500;
 }
 
-/* Botões de Ação dentro da lista */
 .admin-page .btn-icon-delete {
   background: none;
   border: none;
@@ -255,7 +241,6 @@
 .admin-page .btn-block { background: #444; color: #fff; }
 .admin-page .btn-unblock { background: var(--success); color: #fff; }
 
-/* Grupos de Período (Manhã/Tarde) */
 .admin-page .period-title {
   display: flex;
   align-items: center;
@@ -287,18 +272,51 @@
   border-left: 4px solid var(--success);
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
+  .admin-page .container {
+    margin: 20px auto;
+    padding: 0 15px;
+  }
+
+  .admin-page .nav-content {
+    justify-content: center;
+    padding: 0 1rem;
+  }
+
   .admin-page .admin-grid {
     grid-template-columns: 1fr;
+    gap: 15px;
   }
 
   .admin-page .profile-info {
     flex-direction: column;
     text-align: center;
+    gap: 1rem;
   }
-  
-  .admin-page .admin-form input {
-    width: 100%;
+
+  .admin-page .admin-item,
+  .admin-page .schedule-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .admin-page .schedule-item .client-name {
+    margin-left: 0;
+  }
+
+  .admin-page .btn-cancel,
+  .admin-page .btn-block,
+  .admin-page .btn-unblock,
+  .admin-page .btn-icon-delete {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-page .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 }
