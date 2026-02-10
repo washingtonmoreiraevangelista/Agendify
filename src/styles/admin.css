@@ -1,3 +1,4 @@
+/* --- VARIÁVEIS E GERAL --- */
 .admin-page {
   --primary: #f5c77a;
   --bg-dark: #0b0b0b;
@@ -19,6 +20,7 @@
   box-sizing: border-box;
 }
 
+/* --- NAVEGAÇÃO --- */
 .admin-page .top-nav {
   background: #0f0f0f;
   border-bottom: 1px solid var(--border);
@@ -58,6 +60,7 @@
   border-color: var(--primary);
 }
 
+/* --- LAYOUT E CARDS --- */
 .admin-page .container {
   max-width: 1100px;
   margin: 40px auto;
@@ -79,6 +82,7 @@
   height: fit-content;
 }
 
+/* --- PERFIL --- */
 .admin-page .profile-section {
   margin-bottom: 2rem;
 }
@@ -89,10 +93,6 @@
   gap: 2rem;
 }
 
-.admin-page .avatar-wrapper {
-  position: relative;
-}
-
 .admin-page .avatar-wrapper img {
   width: 100px;
   height: 100px;
@@ -101,21 +101,7 @@
   object-fit: cover;
 }
 
-.admin-page .upload-badge {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background: var(--primary);
-  color: #000;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-weight: bold;
-  cursor: pointer;
-}
-
+/* --- FORMULÁRIOS E INPUTS --- */
 .admin-page .section-header {
   display: flex;
   justify-content: space-between;
@@ -135,31 +121,123 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-bottom: 25px;
 }
 
-.admin-page .input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.admin-page .admin-form input,
-.admin-page #admin-date-picker {
+.admin-page input[type="date"],
+.admin-page .admin-form input {
   background: #222;
   border: 1px solid #333;
   padding: 12px;
   color: white;
   border-radius: 6px;
-  width: 100%;
+  width: 50%;
   outline: none;
+  font-family: 'Catamaran', sans-serif;
+  transition: border-color 0.2s;
 }
 
+.admin-page input[type="date"]:focus,
 .admin-page .admin-form input:focus {
   border-color: var(--primary);
 }
 
-.admin-page .btn-primary {
+/* Ajuste ícone calendário para tema dark */
+.admin-page input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+/* --- NOVO: CONTAINER BLOQUEIO DE INTERVALO --- */
+/* --- CONTAINER BLOQUEIO DE INTERVALO --- */
+.admin-page .block-range-container {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 25px;
+  border: 1px solid var(--border);
+  margin-top: 20px;
+  
+  /* Ativa o Grid */
+  display: grid;
+  /* Cria duas colunas iguais */
+  grid-template-columns: 1fr 1fr; 
+  gap: 10px;
+}
+
+/* Faz o Título e o Botão ocuparem as duas colunas inteiras */
+.admin-page .block-range-container h4,
+.admin-page #btn-block-range {
+  grid-column: span 2;
+}
+
+.admin-page .block-range-container h4 {
+  color: var(--primary);
+  margin: 0 0 5px 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Estilo dos Labels */
+.admin-page .block-range-container label {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  align-self: end; /* Alinha o label ao fundo da célula */
+}
+
+/* Estilo dos Inputs de Data (Lado a Lado) */
+.admin-page .block-range-container input[type="date"] {
+  background: #222;
+  border: 1px solid #333;
+  padding: 8px;
+  color: white;
+  border-radius: 6px;
+  width: 100%;
+  font-size: 0.85rem;
+  outline: none;
+}
+
+/* Ajuste específico para a data de agendamento principal (Agenda) ser menor */
+.admin-page #date {
+  width: 130px !important; /* Força o tamanho menor */
+  padding: 5px 8px;
+  height: 32px;
+  font-size: 0.8rem;
+}
+
+/* Botão */
+.admin-page #btn-block-range {
+  margin-top: 10px;
+  background: var(--primary);
+  color: #000;
+  border: none;
+  padding: 12px;
+  font-weight: bold;
+  border-radius: 6px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.admin-page #btn-block-range:disabled {
+  background: #444;
+  color: #888;
+}
+
+/* No mobile, volta a ser um embaixo do outro para não espremer */
+@media (max-width: 480px) {
+  .admin-page .block-range-container {
+    grid-template-columns: 1fr;
+  }
+  .admin-page .block-range-container h4,
+  .admin-page #btn-block-range {
+    grid-column: span 1;
+  }
+}
+
+/* --- BOTÕES --- */
+.admin-page .btn-primary,
+.admin-page #btn-block-range {
   background: var(--primary);
   border: none;
   padding: 14px;
@@ -172,17 +250,19 @@
   width: 100%;
 }
 
-.admin-page .btn-primary:hover {
+.admin-page .btn-primary:hover,
+.admin-page #btn-block-range:hover:not(:disabled) {
   filter: brightness(1.1);
+  transform: translateY(-2px);
 }
 
-.admin-page .admin-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.admin-page #btn-block-range:disabled {
+  background: #444;
+  color: #888;
+  cursor: not-allowed;
 }
 
-.admin-page .admin-item,
+/* --- LISTA DE AGENDAMENTOS --- */
 .admin-page .schedule-item {
   display: flex;
   justify-content: space-between;
@@ -190,17 +270,8 @@
   padding: 15px;
   background: #1f1f1f;
   border-radius: 8px;
+  margin-bottom: 10px;
   border: 1px solid transparent;
-}
-
-.admin-page .admin-item strong {
-  display: block;
-  color: var(--text);
-}
-
-.admin-page .admin-item span {
-  color: var(--primary);
-  font-size: 0.9rem;
 }
 
 .admin-page .schedule-item .time {
@@ -216,18 +287,40 @@
   font-weight: 500;
 }
 
-.admin-page .btn-icon-delete {
-  background: none;
-  border: none;
-  color: var(--danger);
-  font-size: 1.8rem;
-  cursor: pointer;
-  line-height: 0;
+/* Estado: Horário Disponível */
+.admin-page .schedule-item.available {
+  border-left: 4px solid var(--success);
+}
+
+/* Estado: Horário Bloqueado */
+.admin-page .schedule-item.item-blocked {
+  opacity: 0.7;
+  background: #000;
+  border: 1px dashed #333;
+}
+
+/* Estado: Horário que já passou */
+.admin-page .schedule-item.hour-past {
+  opacity: 0.4;
+  background: #0d0d0d;
+  filter: grayscale(1);
+  pointer-events: none;
+}
+
+/* --- BOTÕES DE AÇÃO NA LISTA --- */
+.admin-page .btn-cancel { 
+  background: var(--danger); 
+  color: #fff; 
+}
+
+.admin-page .btn-block { 
+  background: #333; 
+  color: #fff; 
+  border: 1px solid #444;
 }
 
 .admin-page .btn-cancel,
-.admin-page .btn-block,
-.admin-page .btn-unblock {
+.admin-page .btn-block {
   border: none;
   padding: 8px 14px;
   border-radius: 4px;
@@ -235,12 +328,15 @@
   font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
+  transition: 0.2s;
 }
 
-.admin-page .btn-cancel { background: var(--danger); color: #fff; }
-.admin-page .btn-block { background: #444; color: #fff; }
-.admin-page .btn-unblock { background: var(--success); color: #fff; }
+.admin-page .btn-block:hover {
+  background: var(--primary);
+  color: #000;
+}
 
+/* --- TÍTULOS DE PERÍODO --- */
 .admin-page .period-title {
   display: flex;
   align-items: center;
@@ -249,7 +345,6 @@
   color: var(--text-muted);
   text-transform: uppercase;
   font-size: 0.8rem;
-  letter-spacing: 1px;
 }
 
 .admin-page .period-title img {
@@ -257,66 +352,20 @@
   filter: grayscale(1) brightness(2);
 }
 
-.admin-page .admin-schedule-list {
-  list-style: none;
-  padding: 0;
-}
-
-.admin-page .schedule-item.blocked {
-  opacity: 0.6;
-  background: #000;
-  border: 1px dashed #333;
-}
-
-.admin-page .schedule-item.available {
-  border-left: 4px solid var(--success);
-}
-
+/* --- RESPONSIVIDADE --- */
 @media (max-width: 768px) {
-  .admin-page .container {
-    margin: 20px auto;
-    padding: 0 15px;
-  }
-
-  .admin-page .nav-content {
-    justify-content: center;
-    padding: 0 1rem;
-  }
-
   .admin-page .admin-grid {
     grid-template-columns: 1fr;
-    gap: 15px;
   }
-
-  .admin-page .profile-info {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-  }
-
-  .admin-page .admin-item,
+  
   .admin-page .schedule-item {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
   }
 
-  .admin-page .schedule-item .client-name {
-    margin-left: 0;
-  }
-
   .admin-page .btn-cancel,
-  .admin-page .btn-block,
-  .admin-page .btn-unblock,
-  .admin-page .btn-icon-delete {
+  .admin-page .btn-block {
     align-self: flex-end;
-  }
-}
-
-@media (max-width: 480px) {
-  .admin-page .section-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
   }
 }

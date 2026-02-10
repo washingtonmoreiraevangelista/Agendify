@@ -9,6 +9,20 @@ export function loginModal() {
   const modal = document.getElementById("login-modal")
   if (!modal) return
 
+  const handleAdminButton = () => {
+
+    // ID do seu botão/link no HTML
+    const btnAdmin = document.getElementById("btn-admin-panel");
+    const isAdmin = localStorage.getItem("@app:isAdmin");
+
+    if (btnAdmin) {
+      btnAdmin.style.display = (String(isAdmin) === "true") ? "block" : "none";
+    }
+  }
+
+  // Executa ao carregar para garantir que o estado atual seja respeitado
+  handleAdminButton()
+
   const tabs = modal.querySelectorAll(".tab")
   const forms = modal.querySelectorAll(".modal-form")
 
@@ -93,14 +107,19 @@ export function loginModal() {
           // Salva na sessão para o agendamento funcionar depois
           localStorage.setItem("@app:userId", newUser.id);
           localStorage.setItem("@app:name", newUser.name);
-          localStorage.setItem("@app:isAdmin", false);
 
           showMessage("Cadastro realizado com sucesso!", "success");
           registerForm.reset();
 
           //Redirecionamento
           setTimeout(() => {
-            window.location.href = "scheduling.html";
+            const isAdmin = localStorage.getItem("@app:isAdmin");
+
+            if (isAdmin === "true") {
+              window.location.href = "admin.html";
+            } else {
+              window.location.href = "scheduling.html";
+            }
           }, 1500);
 
         } else {
@@ -147,7 +166,7 @@ export function loginModal() {
           localStorage.setItem("@app:name", proUser.name)
           localStorage.setItem("@app:isAdmin", "true")
 
-          showMessage("Login administrativo!", "success")
+          showMessage("Login realizado com sucesso!", "success")
           setTimeout(() => { window.location.href = "admin.html" }, 1500)
           // Para a execução aqui
           return

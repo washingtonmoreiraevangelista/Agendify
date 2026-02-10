@@ -34,7 +34,7 @@ export function scheduleShow({ dailySchedule }) {
       //Criar ícone de cancelar
       const cancelIcon = document.createElement("img")
       cancelIcon.classList.add("cancel-icon")
-      cancelIcon.setAttribute("src", "./src/assets/cancel.svg")
+      cancelIcon.setAttribute("src", "/assets/cancel.svg")
       cancelIcon.setAttribute("alt", "Cancelar")
 
 

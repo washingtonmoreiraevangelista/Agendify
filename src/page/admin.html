@@ -42,42 +42,57 @@
             </div>
           </div>
         </aside>
+
+
         <main class="admin-card">
           <header class="section-header">
             <h3>Agendamentos</h3>
-            <input type="date" id="admin-date-picker" />
+            <input type="date" id="date" name="date" required />
           </header>
+          
+          <div class="block-range-container">
+          <h4>Bloquear Intervalo</h4>
+          <label for="date-start">De:</label>
+          <input type="date" id="date-start" name="date-start" />
+
+          <label for="date-end">Até:</label>
+          <input type="date" id="date-end" name="date-end" />
+
+          <button id="btn-block-range" type="button">
+            Bloquear Dias Selecionados
+          </button>
+        </div>
+
           <div class="schedule-periods">
+            <!-- MANHÃ -->
             <div class="period-group">
               <div class="period-title">
-                <img src="/assets/morning.svg" alt="" />
+                <img src="/assets/morning.svg" alt="Manhã" />
                 <strong>Manhã</strong>
+                <span>09h - 12h</span>
               </div>
-              <ul class="admin-schedule-list">
-                <li class="schedule-item">
-                  <span class="time">09:00</span>
-                  <span class="client-name">Ricardo Souza</span>
-                  <button class="btn-cancel">Cancelar</button>
-                </li>
-                <li class="schedule-item available">
-                  <span class="time">10:00</span>
-                  <span class="client-name">[Livre]</span>
-                  <button class="btn-block">Bloquear</button>
-                </li>
-              </ul>
+
+              <ul id="period-morning" class="admin-schedule-list"></ul>
             </div>
+
             <div class="period-group">
               <div class="period-title">
-                <img src="/assets/afternoon.svg" alt="" />
+                <img src="/assets/afternoon.svg" alt="Tarde" />
                 <strong>Tarde</strong>
+                <span>13h - 18h</span>
               </div>
-              <ul class="admin-schedule-list">
-                <li class="schedule-item blocked">
-                  <span class="time">14:00</span>
-                  <span class="client-name">BLOQUEADO</span>
-                  <button class="btn-unblock">Liberar</button>
-                </li>
-              </ul>
+
+              <ul id="period-afternoon" class="admin-schedule-list"></ul>
+            </div>
+
+            <div class="period-group">
+              <div class="period-title">
+                <img src="/assets/night.svg" alt="Noite" />
+                <strong>Noite</strong>
+                <span>19h - 21h</span>
+              </div>
+
+              <ul id="period-night" class="admin-schedule-list"></ul>
             </div>
           </div>
         </main>
