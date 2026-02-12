@@ -1249,6 +1249,26 @@
         "Bloqueio Administrativo"
       ],
       "userId": "admin"
+    },
+    {
+      "id": "2aa4",
+      "name": "BLOQUEADO",
+      "when": "2026-02-19T17:00:00.000Z",
+      "professional": "e11a",
+      "services": [
+        "Bloqueio Administrativo"
+      ],
+      "userId": "admin"
+    },
+    {
+      "id": "f03f",
+      "name": "wefwewef",
+      "when": "2026-02-26T17:00:00.000Z",
+      "professional": "e11a",
+      "services": [
+        "Luzes"
+      ],
+      "userId": "5900"
     }
   ],
   "profiles": [
@@ -1270,26 +1290,6 @@
     }
   ],
   "services": [
-    {
-      "name": "Corte",
-      "price": "30,00",
-      "id": "e79c"
-    },
-    {
-      "name": "Barba",
-      "price": "20,00",
-      "id": "1fd0"
-    },
-    {
-      "name": "Sobrancelha",
-      "price": "10,00",
-      "id": "b4a2"
-    },
-    {
-      "name": "Pezinho",
-      "price": "10,00",
-      "id": "2b95"
-    },
     {
       "name": "Relaxamento",
       "price": "25,00",
@@ -1319,6 +1319,41 @@
       "name": "Escova",
       "price": "15,00",
       "id": "1a62"
+    },
+    {
+      "id": "b6a3",
+      "name": "fdfdgb",
+      "price": "23"
+    },
+    {
+      "id": "da25",
+      "name": "dssdg",
+      "price": "25,00"
+    },
+    {
+      "id": "ef55",
+      "name": "sdfsdf",
+      "price": "456454"
+    },
+    {
+      "id": "b49e",
+      "name": "sdgsdg",
+      "price": "253"
+    },
+    {
+      "id": "01ff",
+      "name": "dfgdfgd",
+      "price": "56464"
+    },
+    {
+      "id": "975a",
+      "name": "dasdsad",
+      "price": "25,00"
+    },
+    {
+      "id": "ae57",
+      "name": "zdfdsfsd",
+      "price": "23.32"
     }
   ]
 }

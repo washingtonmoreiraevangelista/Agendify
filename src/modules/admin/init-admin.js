@@ -2,10 +2,50 @@ import dayjs from "dayjs"
 import { openingHours } from "../../utils/opening-hours"
 import { scheduleBlock } from "../../services/schedule-block"
 import { schedulesDayAdmin } from "./schedules-admin"
+import { deleteServices } from '../../services/delete-service'
+import { listServices } from './list-services'
+import { createServices } from '../../services/create-service'
 
 // Inicializa os eventos básicos (Calendário e Filtro)
 export function initAdminEvents() {
+
   const dateInput = document.getElementById("date")
+  const servicesList = document.getElementById("services-list")
+  const serviceForm = document.getElementById("service-form")
+
+  // Adicionar serviços 
+  if (serviceForm) {
+    serviceForm.onsubmit = async (event) => {
+      // Impede a página de recarregar
+      event.preventDefault() 
+
+      // Captura os inputs dentro do formulário
+      const inputs = serviceForm.querySelectorAll("input")
+      const name = inputs[0].value
+      const price = inputs[1].value
+
+      // Chama a função para salvar na API
+      await createServices({ name, price })
+
+      // Limpa os campos e atualiza a lista
+      serviceForm.reset()
+      await listServices()
+    }
+  }
+
+  //Listar todos os serviços
+  if (servicesList) {
+    servicesList.onclick = async (event) => {
+      if (event.target.classList.contains("btn-icon-delete")) {
+        const item = event.target.closest(".admin-item")
+        const id = item?.dataset.id
+        if (id && confirm("Deseja excluir este serviço?")) {
+          await deleteServices({ id })
+          await listServices()
+        }
+      }
+    }
+  }
 
   if (!dateInput) return
 
@@ -43,7 +83,7 @@ function initBlockRange() {
     if (endDate.isBefore(currentDate)) return alert("A data final não pode ser anterior à data inicial!")
 
     if (confirm(`Bloquear todos os horários de ${start} até ${end}?`)) {
-      
+
       // Adiciona um feedback visual de carregamento
       btn.innerText = "Bloqueando..."
       btn.disabled = true

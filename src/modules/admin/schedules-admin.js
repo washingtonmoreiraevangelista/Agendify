@@ -17,9 +17,7 @@ export async function schedulesDayAdmin() {
     const dailySchedule = allSchedules.filter((s) => 
       dayjs(s.when).format("YYYY-MM-DD") === dateInput.value
     )
-
-    console.log("Agendamentos encontrados:", dailySchedule)
-
+    
     await scheduleShowAdmin({ schedules: dailySchedule })
 
   } catch (error) {

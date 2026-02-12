@@ -352,6 +352,81 @@
   filter: grayscale(1) brightness(2);
 }
 
+/* --- LISTA DE SERVIÇOS (PADRÃO AGENDIFY) --- */
+.admin-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Item compacto e escuro seguindo o padrão dos cards */
+.admin-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background: #1f1f1f; /* Fundo igual aos itens da agenda */
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: border-color 0.2s;
+}
+
+.admin-item:hover {
+  border-color: var(--primary);
+}
+
+/* Nome e Preço alinhados */
+.admin-item div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-item strong {
+  font-size: 0.9rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Preço com destaque em dourado/primary */
+.admin-item span {
+  font-size: 0.8rem;
+  color: var(--primary);
+  font-weight: 700;
+  background: rgba(245, 199, 122, 0.1); /* Fundo primary com transparência */
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(245, 199, 122, 0.2);
+}
+
+/* Botão de excluir discreto que fica vermelho no hover */
+.btn-icon-delete {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon-delete:hover {
+  color: var(--danger);
+  transform: scale(1.1);
+}
+
+/* Ajuste nos inputs do formulário de serviço para ficarem lado a lado se desejar */
+.admin-form .input-group {
+  width: 100%;
+}
+
+.admin-form input {
+  width: 100% !important; /* Sobrescreve o 50% para ocupar o card */
+}
+
 /* --- RESPONSIVIDADE --- */
 @media (max-width: 768px) {
   .admin-page .admin-grid {
