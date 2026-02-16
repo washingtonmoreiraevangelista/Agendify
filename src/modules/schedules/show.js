@@ -26,7 +26,7 @@ export function scheduleShow({ dailySchedule }) {
       // Adicionar o id do agendamento
       item.setAttribute("data-id", schedule.id)
       time.textContent = dayjs(schedule.when).format("DD/MM [às] HH:mm")
-      name.textContent = `Profissional: ${ schedule.professional}`
+      name.textContent = `Profissional: ${schedule.displayProfessionalName}`
 
       //  Formatar a lista de serviços (Corrigido o parêntese e ternário)
       servicesElement.textContent = schedule.services ? `Serviços: ${schedule.services.join(", ")}` : "Sem serviços"

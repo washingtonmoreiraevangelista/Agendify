@@ -25,8 +25,16 @@
 
       <div class="admin-grid">
         <aside class="admin-card">
+          <header class="section-header">
+            <h3>Mensagens de Contato</h3>
+          </header>
+
+          <div class="admin-list" id="contact-messages-list">
+            <p>Carregando mensagens...</p>
+          </div>
+
           <header class="section-header"><h3>Meus Serviços</h3></header>
-          
+
           <form id="service-form" class="admin-form">
             <div class="input-group">
               <input type="text" placeholder="Nome do Serviço" required />
@@ -37,31 +45,27 @@
             <button type="submit" class="btn-primary">Adicionar</button>
           </form>
 
-          <div class="admin-list" id="services-list">
-           
-          </div>
-          
+          <div class="admin-list" id="services-list"></div>
         </aside>
-
 
         <main class="admin-card">
           <header class="section-header">
             <h3>Agendamentos</h3>
             <input type="date" id="date" name="date" required />
           </header>
-          
+
           <div class="block-range-container">
-          <h4>Bloquear Intervalo</h4>
-          <label for="date-start">De:</label>
-          <input type="date" id="date-start" name="date-start" />
+            <h4>Bloquear Intervalo</h4>
+            <label for="date-start">De:</label>
+            <input type="date" id="date-start" name="date-start" />
 
-          <label for="date-end">Até:</label>
-          <input type="date" id="date-end" name="date-end" />
+            <label for="date-end">Até:</label>
+            <input type="date" id="date-end" name="date-end" />
 
-          <button id="btn-block-range" type="button">
-            Bloquear Dias Selecionados
-          </button>
-        </div>
+            <button id="btn-block-range" type="button">
+              Bloquear Dias Selecionados
+            </button>
+          </div>
 
           <div class="schedule-periods">
             <!-- MANHÃ -->

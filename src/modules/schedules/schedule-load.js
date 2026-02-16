@@ -16,6 +16,7 @@ export async function schedulesDay() {
   const date = selectedDate.value
   // Usamos o selectedIndex para garantir a captura correta do valor
   const professionalId = professionalSelect.options[professionalSelect.selectedIndex]?.value
+  const professionalName = professionalSelect.options[professionalSelect.selectedIndex]?.text
 
   // AGORA fazemos o log (depois de definir a variável)
   console.log("ID capturado:", professionalId)
@@ -28,8 +29,13 @@ export async function schedulesDay() {
     const allProfessionalSchedules = await schedulesByUser({ date, professionalId })
 
     //  Filtra para a lista (scheduleShow) apenas o que for do usuário logado Convertemos ambos para String para evitar erro de tipo (número vs texto)
-    const userSchedules = allProfessionalSchedules.filter(s => String(s.userId) === String(userId))
-
+const userSchedules = allProfessionalSchedules
+      .filter(s => String(s.userId) === String(userId))
+      .map(s => ({
+        ...s,
+        displayProfessionalName: professionalName 
+      }))
+      
     // Atualiza a lista de agendamentos do usuário
     scheduleShow({ dailySchedule: userSchedules })
 

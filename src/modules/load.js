@@ -6,6 +6,7 @@ import { loadServices } from '../js/carrossel'
 import { initDateChange } from './form/date-change'
 import { initSubmit } from './form/submit'
 import { adminProfessionals } from './admin/admin'
+import { contactFormLoad } from './schedules/contat-form'
 
 document.addEventListener("DOMContentLoaded", function () {
   schedulesDay()
@@ -16,4 +17,5 @@ document.addEventListener("DOMContentLoaded", function () {
   initDateChange()
   initSubmit()
   adminProfessionals()
+  contactFormLoad()
 })
