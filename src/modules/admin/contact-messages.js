@@ -31,6 +31,3 @@ export async function renderContactMessages() {
     listContainer.appendChild(messageElement);
   });
 }
-
-// Chame essa função no carregamento da página
-document.addEventListener("DOMContentLoaded", renderContactMessages);
