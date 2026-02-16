@@ -22,6 +22,8 @@ periods.forEach((period) => {
         if (isConfirm) {
           //Cancela o agendamento 
           await scheduleCancel({ id })
+          item.remove()
+
           //Recarregar os agendamentos
           schedulesDay()
         }

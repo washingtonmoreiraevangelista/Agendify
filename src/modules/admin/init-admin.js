@@ -66,9 +66,9 @@ export function initAdminEvents() {
 
 // Lógica para bloquear vários dias (10 ao 15, etc)
 function initBlockRange() {
-  if (!btn) return
   // Evita erro caso o botão não exista na tela atual
   const btn = document.getElementById("btn-block-range")
+  if (!btn) return
 
   btn.onclick = async () => {
     const start = document.getElementById("date-start").value

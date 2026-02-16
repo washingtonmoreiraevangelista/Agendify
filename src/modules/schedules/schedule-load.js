@@ -29,13 +29,13 @@ export async function schedulesDay() {
     const allProfessionalSchedules = await schedulesByUser({ date, professionalId })
 
     //  Filtra para a lista (scheduleShow) apenas o que for do usuário logado Convertemos ambos para String para evitar erro de tipo (número vs texto)
-const userSchedules = allProfessionalSchedules
+    const userSchedules = allProfessionalSchedules
       .filter(s => String(s.userId) === String(userId))
       .map(s => ({
         ...s,
-        displayProfessionalName: professionalName 
+        displayProfessionalName: professionalName
       }))
-      
+
     // Atualiza a lista de agendamentos do usuário
     scheduleShow({ dailySchedule: userSchedules })
 

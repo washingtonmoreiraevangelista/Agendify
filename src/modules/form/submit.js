@@ -75,6 +75,10 @@ form.onsubmit = async (e) => {
     showMessage("Agendamento realizado com sucesso ! ", "success")
     form.reset()
 
+    //vota a data para a atual
+    const inputToday = dayjs().format("YYYY-MM-DD")
+    selectedDate.value = inputToday
+
   } catch (error) {
     showMessage("Não foi possível realizar o agendamento !", "error")
     console.log(error)

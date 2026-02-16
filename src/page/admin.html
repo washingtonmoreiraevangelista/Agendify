@@ -23,14 +23,27 @@
         <div class="profile-info"></div>
       </section>
 
+      <button
+        id="openMessagesBtn"
+        class="btn-primary"
+        style="width: auto; padding: 8px 20px; font-size: 0.8rem"
+      >
+        Ver Mensagens
+      </button>
+      
       <div class="admin-grid">
         <aside class="admin-card">
-          <header class="section-header">
-            <h3>Mensagens de Contato</h3>
-          </header>
 
-          <div class="admin-list" id="contact-messages-list">
-            <p>Carregando mensagens...</p>
+          <div id="contactModal" class="modal">
+            <div class="modal-content">
+              <span class="close-btn">&times;</span>
+              <header class="section-header">
+                <h3>Mensagens de Contato</h3>
+              </header>
+              <div class="admin-list" id="contact-messages-list">
+                <p>Carregando mensagens...</p>
+              </div>
+            </div>
           </div>
 
           <header class="section-header"><h3>Meus Serviços</h3></header>
